@@ -5,34 +5,54 @@
 	<meta charset="utf-8" />
 </head>
 <body>
-        <?php
+       <?php
+       function conectar(){      
             $servername = "localhost";
-        $username = "root";
-        $password = "utO7rN6hjm1rpp5x";
-
-        // Crear la conexión
-        $conn = mysqli_connect($servername, $username, $password);
+            $db="examenisw2";
+            $username = "root";
+            $password = "utO7rN6hjm1rpp5x";
+        try{         
+            $conn = new PDO('mysql:host='.$servername.';dbname='.$db,$user,$password);
+            }catch(PDOException $e){
+                echo ':( Error al conectar con la base de datos'.$e;
+                exit;
+            }
+        return $conn;
         // Verificar la conexión
-        if (!$conn) {
+        /*if (!$conn) {
             die("Conexión fallida: " . mysqli_connect_error());
         }
+            }
+       
 
         // Crear la base de datos
-        $sql = "CREATE DATABASE myDB";
+        /*$sql = "CREATE DATABASE myDB";
         if (mysqli_query($conn, $sql)) {
             echo "Base de datos creada correctamente";
         } else {
             echo "Error al crear la base de datos: " . mysqli_error($conn);
+        }*/
         }
-
-        mysqli_close($conn);
+        //mysqli_close($conn); /*12:05 pm*/
         ?>
     <div>
-        <h2><center>RESOLUCIONES</center>
-        </h2>
+        <h2>RESOLUCIONES</h2>
     </div>
     <div>
-       
+       <select name="Sede" id="">
+           <?php
+           $conn=conectar();
+           $sql="SELECT Codigo,Descripcion FROM sede";
+           $stmt= $con -> prepare($sql);
+           $resultado=$stmt->execute();
+           $filas=$stmt->fetchAll(\PDO::FETCH_OBJ);
+           foreach($filas as $fila){
+               ?>
+           <option value="<?php print($fila->Codigo); ?>"> <?php print($fila -> Descripcion); ?> </option>
+                   <?php   
+          } ?>
+
+       </select>
     </div>
 </body>
 </html>
