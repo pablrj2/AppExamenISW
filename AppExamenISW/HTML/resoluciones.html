@@ -35,24 +35,92 @@
         }
         //mysqli_close($conn); /*12:05 pm*/
         ?>
-    <div>
+    <div id="" class="">
         <h2>RESOLUCIONES</h2>
     </div>
-    <div>
+    <div id="" class="">
        <select name="Sede" id="">
-           <?php
-           $conn=conectar();
-           $sql="SELECT Codigo,Descripcion FROM sede";
-           $stmt= $con -> prepare($sql);
-           $resultado=$stmt->execute();
-           $filas=$stmt->fetchAll(\PDO::FETCH_OBJ);
-           foreach($filas as $fila){
-               ?>
-           <option value="<?php print($fila->Codigo); ?>"> <?php print($fila -> Descripcion); ?> </option>
-                   <?php   
-          } ?>
-
+           <option value="#">#</option>
+           <option value="#">#</option>
+           <option value="#">#</option>
+           <option value="#">#</option>
+           <option value="#">#</option>
        </select>
+        <select name="Periodo" id="">
+            <option value="#">#</option>
+            <option value="#">#</option>
+            <option value="#">#</option>
+            <option value="#">#</option>
+            <option value="#">#</option>
+        </select>
+        <select name="Año" id="">
+            <option value="#">#</option>
+            <option value="#">#</option>
+            <option value="#">#</option>
+            <option value="#">#</option>
+            <option value="#">#</option>
+        </select>
+        <select name="Tipo" id="">
+            <option value="#">#</option>
+            <option value="#">#</option>
+            <option value="#">#</option>
+            <option value="#">#</option>
+            <option value="#">#</option>
+        </select>
+        <button id="" onclick="">Buscar</button>&emsp;&emsp;&emsp;&emsp;&emsp;    
+        <input type="radio" id="" /> Sin Aplicar <input type="radio" id="" /> Aplicado <input type="radio" id="" /> Ambos
+        <hr />
+    </div>
+    <div>
+        <table id="tt" class="easyui-datagrid" style="width:400px;height:auto;">
+            <thead>
+                <tr>
+                    <th field="name1" width="50">Col 1</th>
+                    <th field="name2" width="50">Col 2</th>
+                    <th field="name3" width="50">Col 3</th>
+                    <th field="name4" width="50">Col 4</th>
+                    <th field="name5" width="50">Col 5</th>
+                    <th field="name6" width="50">Col 6</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Data 1</td>
+                    <td>Data 2</td>
+                    <td>Data 3</td>
+                    <td>Data 4</td>
+                    <td>Data 5</td>
+                    <td>Data 6</td>
+                </tr>
+                <tr>
+                    <td>Data 1</td>
+                    <td>Data 2</td>
+                    <td>Data 3</td>
+                    <td>Data 4</td>
+                    <td>Data 5</td>
+                    <td>Data 6</td>
+                </tr>
+                <tr>
+                    <td>Data 1</td>
+                    <td>Data 2</td>
+                    <td>Data 3</td>
+                    <td>Data 4</td>
+                    <td>Data 5</td>
+                    <td>Data 6</td>
+                </tr>
+                <tr>
+                    <td>Data 1</td>
+                    <td>Data 2</td>
+                    <td>Data 3</td>
+                    <td>Data 4</td>
+                    <td>Data 5</td>
+                    <td>Data 6</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+
     </div>
 </body>
 </html>
